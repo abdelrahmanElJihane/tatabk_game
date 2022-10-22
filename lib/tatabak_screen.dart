@@ -9,8 +9,13 @@ class TatabkGameScreen extends StatefulWidget {
 }
 
 class _TatabkGameScreenState extends State<TatabkGameScreen> {
+
   int rightNumberImage = 1;
   int leftNumberImage = 1;
+  void changeImage(){
+    leftNumberImage = Random().nextInt(8) + 1;
+    rightNumberImage = Random().nextInt(8) + 1;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,8 +52,7 @@ class _TatabkGameScreenState extends State<TatabkGameScreen> {
                   child: TextButton(
                     onPressed: () {
                       setState(() {
-                        leftNumberImage = Random().nextInt(8) + 1;
-                        rightNumberImage = Random().nextInt(8) + 1;
+                        changeImage();
                       });
                     },
                     child: Image.asset('images/image-$leftNumberImage.png'),
@@ -58,8 +62,7 @@ class _TatabkGameScreenState extends State<TatabkGameScreen> {
                   child: TextButton(
                       onPressed: () {
                         setState(() {
-                          leftNumberImage = Random().nextInt(8) + 1;
-                          rightNumberImage = Random().nextInt(8) + 1;
+                          changeImage();
                         });
                       },
                       child: Image.asset('images/image-$rightNumberImage.png')),
